@@ -180,9 +180,8 @@ $balance = auth()->user()->balance;
                 ->with('success', $response['message']);
 
             }else {
-                return redirect()
-                        ->back()
-                        ->with('error', $response['message']);
+                return redirect()->route('admin.balance')
+                ->with('error', $response['message']);
             }
             
 
