@@ -88,9 +88,9 @@ class Balance extends Model
     }
 
     public function transfer (float $value, User $sender) : Array {
-        $vTotal = $this->amount+$value;
+        $vTotal = $this->amount-$value;
 
-        if ($this->amount < $value or  $vTotal > $this->amount)
+        if ($vTotal < 0)
         {
             return [
                 'success' => false,
