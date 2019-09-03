@@ -41,10 +41,12 @@
                         <div class="progress-bar" style="width: 20%"></div>
                     </div>
 
-                    <a href="#">
+                    <div style="text-align: center">
+                        <a href="#">
                             <i class="fa fa-history" aria-hidden="true"></i>
-                                Histórico
-                    </a>            
+                        Histórico
+                        </a>                                    
+                    </div>
 
                 </div>
                 <!-- /.info-box-content -->

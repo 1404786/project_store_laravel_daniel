@@ -122,6 +122,9 @@ class Balance extends Model
          * Atualiza o  saldo do recebedor
          */
         
+         //firstOrCreate serve para  o caso de o usuário que for receber o saldo nunca tiver
+         //recebido nada, se não fizesse isso iria gerar erro, por isso primeiro deve 
+         //criar um balance para o caso de o usuário nunca tiver tido um balance antes.
         $senderBalance = $sender->balance()->firstOrCreate([]);
         $totalBeforeSender = $senderBalance->amount ? $senderBalance->amount : 0;
         $senderBalance->amount += number_format($value, 2, '.', '');
