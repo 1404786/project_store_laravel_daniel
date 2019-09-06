@@ -27,7 +27,7 @@
                 // É usado para salvar um token, pelo que parece isso é exigencia do laravel
                 {!! csrf_field() !!}
                 <div class="form-group">
-                    <input type="text" name="value" placeholder="Valor de saque" class="form-control"> 
+                    <input type="text" name="value" autofocus placeholder="Valor de saque" class="form-control"> 
                 </div>
                 <div class="form-group">
                 <i class="fas fa-money-check-alt"></i>

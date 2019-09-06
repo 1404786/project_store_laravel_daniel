@@ -10,6 +10,7 @@ use App\Http\Requests\MonayValidationFormRequest;
 
 class BalanceController extends Controller
 {
+    private $totalPage = 10;
     /**
      * Display a listing of the resource.
      *
@@ -186,9 +187,8 @@ $balance = auth()->user()->balance;
         }
 
         public function historic () {
-            $historics = auth()->user()->historics()->get();
-
-
+            $historics = auth()->user()->historics()->with(['userSender'])->paginate($this->totalPage);
+            //with torna possível com apenas uma consulta trazer os historicos e o usuário dono do hitórico
 
             return view('admin.balance.historic', compact('historics'));
         }

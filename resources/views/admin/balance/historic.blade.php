@@ -10,7 +10,22 @@
 
     <div class="box">
         <div class="box-header">
-            
+            <form method="POST" action="" class="form form-inline">
+                <input type="text" name="id" class="form-control" placeholder="ID">
+                <input type="date" name="date" class="form-control">
+                <select name="type">
+
+                    <option value="">Tipo</option>
+
+                    @foreach ($historics->type() as $type)
+
+                    <option value="{{ $type }}"></option>
+                    
+                    @endforeach
+                </select>
+
+                <button type="submit" class="btn btn-primary">Pesquisar</button>
+            </form>
 
         </div>
 
@@ -18,7 +33,7 @@
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>Id</th>
                         <th>Data</th>
                         <th>Valor</th>
                         <th>Tipo</th>
@@ -31,14 +46,22 @@
                             <td>{{$historic->id}}</td>
                             <td>{{$historic->date}}</td>
                             <td>{{number_format($historic->amount, 2, ',', '.')}}</td>
-                            <td>{{$historic->type}}</td>
-                            <td>{{$historic->user_id_transaction}}</td>
+                            <td>{{ $historic->type($historic->type) }}</td>
+                            <td>
+                                @if ($historic->user_id_transaction)
+                                    {{ $historic->userSender->name }}
+                                @else
+                                    -
+                                @endif
+                            </td>
                         </tr>    
                     @empty
                     @endforelse
 
                 </tbody>
             </table>
+
+            {!! $historics->links() !!}
         </div>
 
     </div>
