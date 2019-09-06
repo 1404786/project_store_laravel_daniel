@@ -70,3 +70,10 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+Nesse aplicativo, exite uma lógica básica bem interessante para definir o histórico. O sistem define a transação como sendo de três tipos: I, O, T. 
+Se for input e não tiver sender, é depósito.
+Se for output e não tiver sender, é saque.
+Se for input e tiver sender, alguém depositou pra min.
+Se for outut e tiver sender, eu transferi para alguém.

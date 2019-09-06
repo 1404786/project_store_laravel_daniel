@@ -183,8 +183,14 @@ $balance = auth()->user()->balance;
                 return redirect()->route('admin.balance')
                 ->with('error', $response['message']);
             }
-            
+        }
 
+        public function historic () {
+            $historics = auth()->user()->historics()->get();
+
+
+
+            return view('admin.balance.historic', compact('historics'));
         }
     
 }
