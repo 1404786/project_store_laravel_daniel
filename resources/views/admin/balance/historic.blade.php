@@ -17,15 +17,15 @@
 
                     <option value="">Tipo</option>
 
-                    @foreach ($historics->type() as $type)
+                    @foreach ($types as $key => $type)
 
-                    <option value="{{ $type }}"></option>
+                    <option value="{{ $key }}">{{ $type }}</option>
                     
                     @endforeach
                 </select>
 
                 <button type="submit" class="btn btn-primary">Pesquisar</button>
-            </form>
+            </>
 
         </div>
 

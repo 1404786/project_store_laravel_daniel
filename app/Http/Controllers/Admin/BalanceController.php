@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Models\Balance;
+use App\Models\Historic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MonayValidationFormRequest;
@@ -186,11 +187,15 @@ $balance = auth()->user()->balance;
             }
         }
 
-        public function historic () {
+        public function historic (Historic $historic)
+        {
             $historics = auth()->user()->historics()->with(['userSender'])->paginate($this->totalPage);
+            $types = $historic->type();
+
+
             //with torna possível com apenas uma consulta trazer os historicos e o usuário dono do hitórico
 
-            return view('admin.balance.historic', compact('historics'));
+            return view('admin.balance.historic', compact('historics', 'types'));
         }
     
 }
