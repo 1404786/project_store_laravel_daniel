@@ -7,8 +7,8 @@
 
 
     <h1>Meu perfil</h1>
-
-    <form action="{{ route('profile.update') }}" method="POST">
+<!-- enctype="multipart/form-data" é usado para fazer upload de imagens -->
+    <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
         {!! csrf_field() !!}
 
         <div class="form-group">
@@ -27,6 +27,11 @@
             @if (auth()->user()->image != null)
                 <img src="" alt="" style="max-width: 50px;">
             @endif
+
+            @if (auth()->user()->image != null)
+                <img src="{{ url('storage/users/'.auth()->user()->image) }}" alt=" {{ auth()->user()->name }} " style="max-width:50px;">
+            @endif        
+
 
             <label for="image">Imagem:</label>
             <input type="file" name="image" class="form-control">
