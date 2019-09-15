@@ -197,5 +197,17 @@ $balance = auth()->user()->balance;
 
             return view('admin.balance.historic', compact('historics', 'types'));
         }
+
+        public function searchHistoric (Request $request, Historic $historic)
+        {
+            // Toda requisição post no laravel deve passar o token, caso não seja passado vai ter um erro de página expirada
+            // Isso garante a segurante contra csrf
+            $dataForm = $request->except('_token');
+            //recupera todos exceto o token
+
+            $historics = $historic->search($dataForm, $this->totalPage);  
+            $types = $historic->type();
+            return view('admin.balance.historic', compact('historics', 'types', 'dataForm'));
+        }
     
 }
