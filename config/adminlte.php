@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Sistema de saldo</b>',
+    'logo' => '<b>Sis</b>',
 
     'logo_mini' => '<b>C</b>LT',
 
@@ -110,7 +110,7 @@ return [
     'menu' => [
 //        'MENU',
         [
-            'text'        => 'Painel de Controle',
+            'text'        => 'Dashboard',
             'url'         => 'admin',
             'icon'        => 'dashboard',
             'label'       => 4,
